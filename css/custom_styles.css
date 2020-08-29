@@ -1,11 +1,4 @@
-.navbar {
-    /* background-color: transparent; */
-}
-.navbar-start {
-    margin-left: auto;
-    margin-right: auto;
-}
-#mainLogo {
+.navbar-start, #mainLogo {
     margin-left: auto;
     margin-right: auto;
 }
