@@ -28,3 +28,6 @@
     justify-content: flex-end;
     margin-left: auto;
 }
+.card {
+    height: 100%
+}
