@@ -52,8 +52,8 @@
                             Subtitle is for the date of the entry
                             Add to teh top of the columns list!
                     -->
-    
-                    <div class="column is-full">
+                    <div class="column is-one-quarter"></div>
+                    <div class="column is-half">
                         <div class="card large">
                             <div class="card-content">
                                 <div class="media">
@@ -78,8 +78,10 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="column is-full">
+                    <div class="column is-one-quarter"></div>
+                    
+                    <div class="column is-one-quarter"></div>
+                    <div class="column is-half">
                         <div class="card large">
                             <div class="card-content">
                                 <div class="media">
@@ -104,8 +106,10 @@
                             </div>
                         </div>
                     </div>
+                    <div class="column is-one-quarter"></div>
 
-                    <div class="column is-full">
+                    <div class="column is-one-quarter"></div>
+                    <div class="column is-half">
                         <div class="card large">
                             <div class="card-content">
                                 <div class="media">
@@ -115,23 +119,25 @@
                                         </figure>
                                     </div> 
                                     <div class="media-content ">
-                                        <p class="title is-4 no-padding">Programming Language</p>
+                                        <p class="title is-4 no-padding">Frameowrk</p>
                                     </div>
                                 </div> 
                                 <div class="content">
                                     <ol>
-                                        <li><strong>Summary:</strong> </li> 
-                                        <li><strong>Problem:</strong> </li>
-                                        <li><strong>Constraints:</strong> </li>
-                                        <li><strong>Options:</strong> </li>
-                                        <li><strong>Rationale:</strong> </li>
+                                        <li><strong>Summary:</strong> We decided not to use a framework since our app is only possible on one platform, Android.</li> 
+                                        <li><strong>Problem:</strong> We needed to decide how we were going to develop our app as the architecture is heavily dependent on the framework used. If we develop for more than one platform, it can be a major time saver to use a framework.</li>
+                                        <li><strong>Constraints:</strong> The constraints of the iOS platform will not allow developers to access battery information, which means that our app cannot be functional on iOS. Thus we only need to develop for Android. Our decision is therefore to develop natively versus in a framework, but only for one platform. We also need to be able to access native functionality on Android, the battery data, which is often not accessible from a framework.</li>
+                                        <li><strong>Options:</strong> Based on the constraints we have two viable options, developing natively for Android in Kotlin, or doing Kotlin multiplatform. Both can access native libraries although Kotlin has a slightly larger amount of overhead. This increase in overhead will allow for our app to deploy to multiple platforms, but since our app cannot work on iOS, there is no value gained from the additional overhead. Additionally, we can always implement new features in Kotlin multiplatform later on if the battery information becomes available to developers on iOS.</li>
+                                        <li><strong>Rationale:</strong> We chose to develop natively in Kotlin on Android since it has the least overhead and most community support available.</li>
                                     </ol>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="column is-one-quarter"></div>
 
-                    <div class="column is-full">
+                    <div class="column is-one-quarter"></div>
+                    <div class="column is-half">
                         <div class="card large">
                             <div class="card-content">
                                 <div class="media">
@@ -141,23 +147,25 @@
                                         </figure>
                                     </div> 
                                     <div class="media-content ">
-                                        <p class="title is-4 no-padding">Programming Language</p>
+                                        <p class="title is-4 no-padding">Backend Service</p>
                                     </div>
                                 </div> 
                                 <div class="content">
                                     <ol>
-                                        <li><strong>Summary:</strong> </li> 
-                                        <li><strong>Problem:</strong> </li>
-                                        <li><strong>Constraints:</strong> </li>
-                                        <li><strong>Options:</strong> </li>
-                                        <li><strong>Rationale:</strong> </li>
+                                        <li><strong>Summary:</strong> We decided to use the existing backend service that our client has in place in order to manage accounts, sync recorded data, and pull previous data.</li> 
+                                        <li><strong>Problem:</strong> We need a backend service to store our recorded energy data off-device. This allows users to access their data from multiple devices, and allows our client to see their users' energy consumption data. Our backend service would need to accept frequent updates from many users, and would need to serve updated data with low latency to users in order to facilitate a good UX within the app.</li>
+                                        <li><strong>Constraints:</strong> We are constrained to using a backend service that aligns well with the infrastructure our client currently has in place. If we heavily modify the backend service, our client would need to redesign their current architecture - something we need to avoid. We also need to accommodate the current user model so that existing users can seamlessly transition to using our app.</li>
+                                        <li><strong>Options:</strong> Some options that we have are using a paid cloud provider like AWS, Azure, or Google Cloud, using a free lightweight provider like Heroku, and using our clients existing backend service. Using a paid provider to create our own backend service would offer the greatest flexibility and performance, but it would cost money, time, and potentially conflict with the client's existing service. A free provider would be cost-effective, but may suffer in performance if many users adopt the app. The client's existing service offers a seamless transition, but may suffer with performance and limits flexibility.</li>
+                                        <li><strong>Rationale:</strong> We chose to use our client's existing backend service because it solves our current problems without conflicting with the infrastructure that they have in place. If performance becomes an issue in the future, our client can add resources to their backend service and continue to interface with our app without too much difficulty.</li>
                                     </ol>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="column is-one-quarter"></div>
 
-                    <div class="column is-full">
+                    <div class="column is-one-quarter"></div>
+                    <div class="column is-half">
                         <div class="card large">
                             <div class="card-content">
                                 <div class="media">
@@ -167,21 +175,22 @@
                                         </figure>
                                     </div> 
                                     <div class="media-content ">
-                                        <p class="title is-4 no-padding">Programming Language</p>
+                                        <p class="title is-4 no-padding">Frontend Graphics</p>
                                     </div>
                                 </div> 
                                 <div class="content">
                                     <ol>
-                                        <li><strong>Summary:</strong> </li> 
-                                        <li><strong>Problem:</strong> </li>
-                                        <li><strong>Constraints:</strong> </li>
-                                        <li><strong>Options:</strong> </li>
-                                        <li><strong>Rationale:</strong> </li>
+                                        <li><strong>Summary:</strong> In order to develop an aesthetically consistent and user friendly frontend, we will be creating a frontend based on our Figma diagrams with existing Embit logos and using the MPAndroidChart library for displaying our dynamic data.</li> 
+                                        <li><strong>Problem:</strong> We need to create a straightforward frontend that will be self explicative and informative to users.</li>
+                                        <li><strong>Constraints:</strong> We are constrained by preexisting logos and branding for Embit, which we have already implemented in our Figma diagrams. We are also constrained to an existing graphing library for Android.</li>
+                                        <li><strong>Options:</strong> We have only one option for the frontend resources and branding. For graphing, we have two choices, MPAndroidChart and GraphView. Both appear to be great options for graphing, but MPAndroidChart has more tutorials immediately available and is a more popular library.</li>
+                                        <li><strong>Rationale:</strong> We have decided to use MPAndroidChart since it has the capability to create the graphs that we have in mind and it has larger community support, which will make learning and working with the library a smoother experience.</li>
                                     </ol>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="column is-one-quarter"></div>
             </div>
         </div>
     </body>
