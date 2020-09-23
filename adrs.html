@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Embit - Journal</title>
+        <link rel="icon" type="image/svg+xml" href="res/logo.svg">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+        <link rel="stylesheet" href="css/custom_styles.css">
+    </head>
+    <body>
+        <div class="header">
+            <div class="navbar">
+                <a id="mainLogo" class=" is-size-2" href="index.html">
+                    Embit
+                </a>
+            </div>
+
+            <nav class="navbar">
+                <div class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item" href="index.html">
+                        Home
+                        </a>
+                        <a class="navbar-item" href="project.html">
+                        Project
+                        </a>
+                        <a class="navbar-item" href="team.html">
+                        Team
+                        </a>
+                        <a class="navbar-item" href="journal.html">
+                        Journal
+                        </a>
+                        <a class="navbar-item" href="deliverables.html">
+                        Deliverables
+                        </a>
+                    </div>
+            
+                </div>
+            </nav>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h1 class="title has-text-centered">
+                    Application Architecture
+                </h1>
+                <div id="adrs" class="columns is-multiline">
+                    <!-- Card Model for future jounral entries
+                            Whoever writes the journal can include their image found under res/
+                            Title should be either 'Meeting Notes' or 'Dev Log'
+                            Subtitle is for the date of the entry
+                            Add to teh top of the columns list!
+                    -->
+    
+                    <div class="column is-full">
+                        <div class="card large">
+                            <div class="card-content">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <figure class="image is-48x48">
+                                            <img src="res/logo.svg" alt="Image">
+                                        </figure>
+                                    </div> 
+                                    <div class="media-content ">
+                                        <p class="title is-4 no-padding">Programming Language</p>
+                                    </div>
+                                </div> 
+                                <div class="content">
+                                    <ol>
+                                        <li><strong>Summary:</strong> In order to program functionality into our app easily, we decided to use the official android app development language, Kotlin.</li> 
+                                        <li><strong>Problem:</strong> In developing for Android, you can use Java or Kotlin, so being on the same page is very important. We want our code to easily operate with itself and android libraries.</li>
+                                        <li><strong>Constraints:</strong> There are only a couple of languages that can be run on JVM based Android phones and we have to choose from them. We will have to be able to work with Android libraries as well, since we have to access phone battery information.</li>
+                                        <li><strong>Options:</strong> We have two primary options, Java and Kotlin. Java is well known amongst team members, but Kotlin is easy to learn as it reads like a simplified Java. Kotlin is the official Android development language and it is faster to develop with than Java.</li>
+                                        <li><strong>Rationale:</strong> Since Kotlin has the most advantages and is worth learning for two of our team members who are new to the language, we decided that the team and project would benefit most from using Kotlin to develop with.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-full">
+                        <div class="card large">
+                            <div class="card-content">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <figure class="image is-48x48">
+                                            <img src="res/logo.svg" alt="Image">
+                                        </figure>
+                                    </div> 
+                                    <div class="media-content ">
+                                        <p class="title is-4 no-padding">Local Data Storage</p>
+                                    </div>
+                                </div> 
+                                <div class="content">
+                                    <ol>
+                                        <li><strong>Summary:</strong> In order to persist monitored energy usage locally between app sessions, we decided to use the Room Persistance Library.</li> 
+                                        <li><strong>Problem:</strong> Our app will be monitoring the phone's energy usage constantly in the background, regardless of whether a connection to the backend server is available. Often, the app will be killed without notice. We need a way to store data between app sessions so that we don't lose data before syncing it with the backend server</li>
+                                        <li><strong>Constraints:</strong> We cannot store the data solely in the cloud or off-device, because we need to be able to record data when an internet connection is not available. We also cannot store data in volatile memory, because we need data to be available across app sessions. We are asussming that the client wants as much recorded data as possible, and that loss of data should be avoided.</li>
+                                        <li><strong>Options:</strong> We are considering using the Room Persistance Library, App Specific Storage, and Preferences. App specific storage offers the most flexibility because we can store arbitrary files, but introduces unnecessary complexity for our implementation. Preferences would be easiest to use because they are simply Key-Value pairs, but they are not well suited for streaming temporal data. Room requires that data be relationally structured.</li>
+                                        <li><strong>Rationale:</strong> We went with the Room Persistance Library because it operates at the appropriate abstraction for our problem. Our streaming temporal data is relational by nature, and is well suited for the SQL-like database that Room offers.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-full">
+                        <div class="card large">
+                            <div class="card-content">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <figure class="image is-48x48">
+                                            <img src="res/logo.svg" alt="Image">
+                                        </figure>
+                                    </div> 
+                                    <div class="media-content ">
+                                        <p class="title is-4 no-padding">Programming Language</p>
+                                    </div>
+                                </div> 
+                                <div class="content">
+                                    <ol>
+                                        <li><strong>Summary:</strong> </li> 
+                                        <li><strong>Problem:</strong> </li>
+                                        <li><strong>Constraints:</strong> </li>
+                                        <li><strong>Options:</strong> </li>
+                                        <li><strong>Rationale:</strong> </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-full">
+                        <div class="card large">
+                            <div class="card-content">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <figure class="image is-48x48">
+                                            <img src="res/logo.svg" alt="Image">
+                                        </figure>
+                                    </div> 
+                                    <div class="media-content ">
+                                        <p class="title is-4 no-padding">Programming Language</p>
+                                    </div>
+                                </div> 
+                                <div class="content">
+                                    <ol>
+                                        <li><strong>Summary:</strong> </li> 
+                                        <li><strong>Problem:</strong> </li>
+                                        <li><strong>Constraints:</strong> </li>
+                                        <li><strong>Options:</strong> </li>
+                                        <li><strong>Rationale:</strong> </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-full">
+                        <div class="card large">
+                            <div class="card-content">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <figure class="image is-48x48">
+                                            <img src="res/logo.svg" alt="Image">
+                                        </figure>
+                                    </div> 
+                                    <div class="media-content ">
+                                        <p class="title is-4 no-padding">Programming Language</p>
+                                    </div>
+                                </div> 
+                                <div class="content">
+                                    <ol>
+                                        <li><strong>Summary:</strong> </li> 
+                                        <li><strong>Problem:</strong> </li>
+                                        <li><strong>Constraints:</strong> </li>
+                                        <li><strong>Options:</strong> </li>
+                                        <li><strong>Rationale:</strong> </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </body>
+</html>
