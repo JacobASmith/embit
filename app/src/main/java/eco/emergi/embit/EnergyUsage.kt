@@ -1,13 +1,12 @@
 package eco.emergi.embit
 
-import android.arch.persistence.room.Entity
-import android.arch.persistence.room.PrimaryKey
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity
-class EnergyUsage {
-
-    @PrimaryKey(autoGenerate = true)
-    var id: Int = 0
-    var usage: Int = 0
-
-}
+data class EnergyUsage(
+    @PrimaryKey(autoGenerate = true) var id: Int,
+    var amperage: Long,
+    var voltage: Int,
+    var time: Long
+)

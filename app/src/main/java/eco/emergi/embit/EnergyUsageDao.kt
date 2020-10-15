@@ -1,9 +1,8 @@
 package eco.emergi.embit
 
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.Update
-import android.arch.persistence.room.Delete
+import androidx.room.*
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.*
 
 @Dao
 interface EnergyUsageDao {
@@ -16,4 +15,9 @@ interface EnergyUsageDao {
 
     @Delete
     fun delete(energyUsage: EnergyUsage)
+
+
+    @Query("SELECT * FROM energyusage")
+    fun getAllEnergyUsageData(): Flow<List<EnergyUsage>>
+
 }

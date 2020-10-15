@@ -9,7 +9,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.room.Room
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 
@@ -17,6 +19,10 @@ import com.google.android.material.snackbar.Snackbar
 //import eco.emergi.embit.getBatteryStatus
 
 class MainActivity : AppCompatActivity() {
+    val db = Room.databaseBuilder(
+        applicationContext,
+        EnergyUsageDatabase::class.java, "energy_usage_database"
+    ).build()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,11 +35,17 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         }
+
+        // Create Database
+//        val db = Room.databaseBuilder(
+//            applicationContext,
+//            EnergyUsageDatabase::class.java, "energy_usage_database"
+//            ).build()
+
         val ifilter = IntentFilter(Intent.ACTION_BATTERY_CHANGED)
         val batteryStatus = applicationContext.registerReceiver(bm, ifilter)
         // From stackoverflow
 //        this.registerReceiver(this.BatteryInfo, IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-
 
     }
 
