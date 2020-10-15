@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
+import org.w3c.dom.Text
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -23,7 +25,16 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+//        view.findViewById<TextView>(R.id.textview_first).text = context?.let {
+//            eco.emergi.embit.getBatteryStatus(
+//                it
+//            ).toString()
+//        }
+//        view.findViewById<TextView>(R.id.textview_first).text = context?.let {
+//            eco.emergi.embit.getBatteryPct(
+//                it
+//            ).toString()
+//        }
         view.findViewById<Button>(R.id.button_first).setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
