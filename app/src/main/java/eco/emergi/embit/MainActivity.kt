@@ -19,10 +19,7 @@ import com.google.android.material.snackbar.Snackbar
 //import eco.emergi.embit.getBatteryStatus
 
 class MainActivity : AppCompatActivity() {
-    val db = Room.databaseBuilder(
-        applicationContext,
-        EnergyUsageDatabase::class.java, "energy_usage_database"
-    ).build()
+    val db = EnergyUsageDatabase.getDatabase(applicationContext)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

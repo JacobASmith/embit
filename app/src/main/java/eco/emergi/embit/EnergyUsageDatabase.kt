@@ -13,4 +13,24 @@ abstract class EnergyUsageDatabase : RoomDatabase() {
 //            applicationContext,
 //            EnergyUsageDatabase::class.java, "energy_usage_database"
 //    ).build()
+
+    companion object {
+        @Volatile
+        private var INSTANCE: EnergyUsageDatabase? = null
+
+        fun getDatabase(applicationContext: Context): EnergyUsageDatabase{
+            val tempInstance = INSTANCE
+            if(tempInstance != null){
+                return tempInstance
+            } else {
+                val instance = Room.databaseBuilder(
+                    applicationContext,
+                    EnergyUsageDatabase::class.java,
+                    name: "energy_usage_database"
+                ).build()
+                INSTANCE = instance
+                return instance
+            }
+        }
+    }
 }
