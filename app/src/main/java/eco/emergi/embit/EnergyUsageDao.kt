@@ -16,7 +16,7 @@ interface EnergyUsageDao {
     @Delete
     fun delete(energyUsage: EnergyUsage)
 
-    @Query( value: "SELECT * FROM energyusage")
+    @Query( "SELECT * FROM energyusage")
     fun getAllEnergyUsageData(): Flow<List<EnergyUsage>>
 
 }

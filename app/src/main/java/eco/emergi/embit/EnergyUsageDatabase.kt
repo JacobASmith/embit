@@ -1,9 +1,8 @@
 package eco.emergi.embit
 
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
 import android.content.Context
+import androidx.room.*
+import androidx.sqlite.db.SupportSQLiteOpenHelper
 
 @Database(entities = arrayOf(EnergyUsage::class), version = 1)
 abstract class EnergyUsageDatabase : RoomDatabase() {
@@ -18,17 +17,20 @@ abstract class EnergyUsageDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: EnergyUsageDatabase? = null
 
-        fun getDatabase(applicationContext: Context): EnergyUsageDatabase{
-            val tempInstance = INSTANCE
-            if(tempInstance != null){
-                return tempInstance
-            } else {
-                val instance = Room.databaseBuilder(
-                    applicationContext,
-                    EnergyUsageDatabase::class.java,
-                    name: "energy_usage_database"
-                ).build()
-                INSTANCE = instance
+        fun getInstance(context: Context): EnergyUsageDatabase{
+            synchronized(this) {
+                var instance = INSTANCE
+
+                if (instance == null) {
+                    instance = Room.databaseBuilder(
+                        context.applicationContext,
+                        EnergyUsageDatabase::class.java,
+                        "energy_usage_database"
+                    )
+                        .fallbackToDestructiveMigration()
+                        .build()
+                    INSTANCE = instance
+                }
                 return instance
             }
         }

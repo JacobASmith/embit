@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class EnergyUsage(
-    @PrimaryKey(autoGenerate = true) var id: Int,
+    @PrimaryKey(autoGenerate = true) var id: Int = 0,
     var amperage: Long,
     var voltage: Int,
     var time: Long

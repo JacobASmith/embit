@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <receiver android:name="eco.emergi.embit.BatteryMonitor">
+        <receiver android:name="eco.emergi.embit.BatteryReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BATTERY_LOW"/>
                 <action android:name="android.intent.action.BATTERY_OKAY"/>
