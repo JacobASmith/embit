@@ -34,7 +34,11 @@ class MainActivity : AppCompatActivity() {
         Log.d("DATABASE", db.energyUsageDao().getAllEnergyUsageData().toString())
 
         val ifilter = IntentFilter(Intent.ACTION_BATTERY_CHANGED)
+        val ifilter2 = IntentFilter(Intent.ACTION_POWER_CONNECTED)
+        val ifilter3 = IntentFilter(Intent.ACTION_POWER_DISCONNECTED)
         val batteryStatus = applicationContext.registerReceiver(bm, ifilter)
+        val batteryStatus2 = applicationContext.registerReceiver(bm, ifilter2)
+        val batteryStatus3 = applicationContext.registerReceiver(bm, ifilter3)
 
     }
 

@@ -14,21 +14,29 @@ abstract class EnergyUsageDatabase : RoomDatabase() {
 //    ).build()
 
     companion object {
+        var TEST_MODE = false
+
         @Volatile
         private var INSTANCE: EnergyUsageDatabase? = null
 
-        fun getInstance(context: Context): EnergyUsageDatabase{
+        fun getInstance(context: Context): EnergyUsageDatabase {
             synchronized(this) {
                 var instance = INSTANCE
 
                 if (instance == null) {
-                    instance = Room.databaseBuilder(
-                        context.applicationContext,
-                        EnergyUsageDatabase::class.java,
-                        "energy_usage_database"
-                    )
-                        .fallbackToDestructiveMigration()
-                        .build()
+                    if(TEST_MODE) {
+                        instance = Room.inMemoryDatabaseBuilder(context, EnergyUsageDatabase::class.java).allowMainThreadQueries().build()
+//                        dbInstance = instance?.energyUsageDao()
+                    }
+                    else {
+                        instance = Room.databaseBuilder(
+                            context.applicationContext,
+                            EnergyUsageDatabase::class.java,
+                            "energy_usage_database"
+                        )
+                            .fallbackToDestructiveMigration()
+                            .build()
+                    }
                     INSTANCE = instance
                 }
                 return instance
