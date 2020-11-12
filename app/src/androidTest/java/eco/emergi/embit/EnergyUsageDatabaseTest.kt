@@ -51,10 +51,4 @@ class EnergyUsageDatabaseTest {
         energyUsageDao?.deleteEnergyUsage(energyUsage.amperage, energyUsage.voltage, energyUsage.time)
         assertNull(energyUsageDao?.getEnergyUsage(energyUsage.amperage, energyUsage.voltage, energyUsage.time))
     }
-//    @Test
-//    fun storeDataTest() {
-//        // Context of the app under test.
-//        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-//        assertEquals("eco.emergi.embit", appContext.packageName)
-//    }
 }
