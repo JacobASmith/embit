@@ -43,17 +43,17 @@ to the repo. If creating a new feature, use a separate development branch and do
 the main branch. For more information on the project and why you might want to contribute, see our
 project website: [https://jacobasmith.github.io/embit/].
 
-#Authors
+# Authors
 This app and website were created by three UNC Chapel Hill undergraduates for our Comp 523, Software
 Engineering laboratory project. Our team members include: 
 Jacob A. Smith [JacobASmith]("https://github.com/JacobASmith")
 Prabhath Kotha [prabhathkotha]("https://github.com/prabhathkotha")
 Raj Gandecha [rgandecha]("https://github.com/rgandecha")
 
-#License
+# License
 To be determined.
 
-#Acknowledgements
+# Acknowledgements
 We would like to give a special thanks to our mentor, Jaime Vega, for keeping us on track and offering
 his wisdom when we get stuck. We also want to thank Eric Scheier, who without his vision we would 
 not be making this app. And, last but not least, we would like to thank our professor, Dr. Jeff 
