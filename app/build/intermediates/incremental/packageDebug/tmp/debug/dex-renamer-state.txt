@@ -1,4 +1,0 @@
-#Wed Nov 11 23:38:14 EST 2020
-base.0=C\:\\Users\\Jacob\\Documents\\UNC\\COMP 523\\embit\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
-path.0=classes.dex
-renamed.0=classes.dex
