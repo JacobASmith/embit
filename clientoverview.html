@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Embit - Project</title>
+    <link rel="icon" type="image/svg+xml" href="res/logo.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" href="css/custom_styles.css">
+</head>
+<body>
+    <div class="header">
+        <div class="navbar">
+            <a id="mainLogo" class=" is-size-2" href="index.html">
+                Embit
+            </a>
+        </div>
+
+        <nav class="navbar">
+            <div class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="index.html">
+                    Home
+                    </a>
+                    <a class="navbar-item" href="project.html">
+                    Project
+                    </a>
+                    <a class="navbar-item" href="team.html">
+                    Team
+                    </a>
+                    <a class="navbar-item" href="journal.html">
+                    Journal
+                    </a>
+                    <a class="navbar-item" href="deliverables.html">
+                    Deliverables
+                    </a>
+                </div>
+        
+            </div>
+        </nav>
+    </div>
+    <section class="container">
+        <div class="section">
+            <h1 class="title has-text-centered is-size-2">
+                Client Overview
+            </h1>
+            <br><br>
+            <div class="content is-size-4">
+                <p>
+                    <strong>What are the major pieces of your overall system? Where is each piece deployed?</strong>
+                    <br>
+                    <br>
+                    All code written by us can be found in the following repository: <a href="https://github.com/JacobASmith/embit">https://github.com/JacobASmith/embit</a>
+                    <br>
+                    <figure class="image">
+                        <img src="res/archdiagram.svg">
+                    </figure>
+                    <br>
+                    As you know, the Embit Backend Service is owned and hosted by you. The Embit Mobile app contains all of the UI and 
+                    logical components of the app as well as the code to post to the backend service. Within the app, data is stored to 
+                    and read from the Room local storage. The specification for the Room local storage can be found alongside the app files 
+                    within the directory `app/src/main/java/eco.emergi.embit/`. The database has an EnergyUsageDatabase.kt file that allows 
+                    you to get a single instance of the database. The EnergyUsage table is defined in EnergyUsage.kt and the operations 
+                    that you can perform on the table are defined in EnergyUsageDao.kt. 
+                </p>
+                <p>
+                    <strong>How can the client manage everything?</strong>
+                    <br><br>
+                    Going forward, we will give you administrative access by making you a collaborator on the github repository. This will allow 
+                    you to add any future collaborators as well.
+                </p>
+                <p>
+                    <strong>How much does everything cost? Is that subject to change? If so, under what conditions?</strong>
+                    <br><br>
+                    Currently, the app will cost zero additional fees to maintain since our services only require the existing backend which 
+                    you are already paying for. Publishing the app to the Google Play Store will cost a one time fee of $25 dollars. This fee 
+                    is to establish a developer account which you can then use to publish as many or as few apps as you need. 
+                </p>
+                <p>
+                    <strong>Where does the code live? Is it open source or closed source? Does the client have a license to do what they want with it?</strong>
+                    <br><br>
+                    As stated above, the code can be found here: <a href="https://github.com/JacobASmith/embit">https://github.com/JacobASmith/embit</a>. It is open source and you are free to continue development 
+                    and use it as you wish. We have made you a collaborator as well.
+                </p>
+                <p>
+                    <strong>How can the client access the live app? If the app isn’t generally available, is there a way that the client can share the app with somebody else, 
+                        so that they can use it?
+                    </strong>
+                    <br><br>
+                    Until you are ready to deploy the app to the Google Play Store, you will have to open the repository in Android Studio and deploy to a connected phone or a 
+                    virtual device. The details on how to do so are outlined in the developer README on the code repo. When you are ready to publish the app to share, follow 
+                    this official Android guide: <a href="https://developer.android.com/studio/publish">https://developer.android.com/studio/publish</a>. 
+                </p>
+                <p>
+                    <strong>Of the “need-to-have” user stories (see Assignment 2), which ones are complete, partially complete, or unstarted?</strong>
+                    <br><br>
+                    While the items relating to accounts have not been accomplished due to not having the Emergi account API available, we have completed the remaining “need-to-have” user stories. 
+                    The user story 2 regarding a home screen graph of data still needs to be completed as well.
+                </p>
+                <p>
+                    <strong>Did you make any progress on the “nice-to-have” user stories? If so, which ones, and how much progress?</strong>
+                    <br><br>
+                    The graphing of data in User Story 2 still needs work as the UI is in early stages.
+                </p>
+                <p>
+                    <strong>What do you think the highest priority next steps are?</strong>
+                    <br><br>
+                    The most important thing for you to do next, is to make the endpoint available to start sending the data that we are collecting so that you can begin to aggregate the data. 
+                    Once that is done, I would recommend getting accounts set up so that users can begin to take credit for their solar energy consumption!
+                </p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
