@@ -11,8 +11,9 @@
             android:id="@+id/button_second"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#08009688"
+            android:background="#612196F3"
             android:text="@string/previous"
+            android:textColor="#DD000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -22,29 +23,34 @@
 
     <TextView
             android:id="@+id/instantVoltage"
-            android:layout_width="136dp"
-            android:layout_height="31dp"
+            android:layout_width="131dp"
+            android:layout_height="24dp"
             android:text="Voltage:"
-            android:textColor="#4CAF50"
+            android:textColor="#5E228B22"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/montserrat"
             app:layout_constraintBottom_toTopOf="@+id/instantAmperage"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.489"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.93" />
+            app:layout_constraintVertical_bias="0.848" />
 
     <TextView
             android:id="@+id/instantAmperage"
-            android:layout_width="136dp"
-            android:layout_height="31dp"
+            android:layout_width="137dp"
+            android:layout_height="24dp"
             android:text="Amperage:"
-            android:textColor="#4CAF50"
+            android:textColor="#5E228B22"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/montserrat"
             app:layout_constraintBottom_toTopOf="@+id/button_second"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.724" />
+            app:layout_constraintVertical_bias="0.574" />
 
     <ImageView
             android:id="@+id/imageView"
@@ -57,5 +63,38 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.252" />
+
+    <TextView
+            android:id="@+id/instantVoltageValue"
+            android:layout_width="132dp"
+            android:layout_height="26dp"
+            android:text="0 mV"
+            android:textColor="#61A5E3"
+            android:textSize="21sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/montserrat"
+            app:layout_constraintBottom_toTopOf="@+id/instantAmperage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/instantVoltage"
+            app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+            android:id="@+id/instantAmperageValue"
+            android:layout_width="132dp"
+            android:layout_height="28dp"
+            android:text="TextView"
+            android:textColor="#61A5E3"
+            android:textSize="21sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/montserrat"
+            app:layout_constraintBottom_toTopOf="@+id/button_second"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/instantAmperage"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="0 mA" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

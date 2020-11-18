@@ -36,22 +36,22 @@ class SecondFragment : Fragment() {
         }
 
         //hook in voltage and amperage into UI
-        val instantVoltageTextView by lazy {
-            view.findViewById<TextView>(R.id.instantVoltage)
+        val instantVoltageValueTextView by lazy {
+            view.findViewById<TextView>(R.id.instantVoltageValue)
         }
 
-        val instantAmperageTextView by lazy {
-            view.findViewById<TextView>(R.id.instantAmperage)
+        val instantAmperageValueTextView by lazy {
+            view.findViewById<TextView>(R.id.instantAmperageValue)
         }
 
         val currVoltage = BatteryInfo.getCurrentVoltage()
         val currAmperage = BatteryInfo.getCurrentAmperage()
 
-        updateTextView(instantVoltageTextView, " " + currVoltage)
-        updateTextView(instantAmperageTextView, " " + currAmperage)
+        updateTextView(instantVoltageValueTextView, "" + currVoltage + " mV")
+        updateTextView(instantAmperageValueTextView, "" + currAmperage + " mA")
     }
 
     private fun updateTextView(tv: TextView?, str: String) {
-        tv?.append(str)
+        tv?.setText(str)
     }
 }
