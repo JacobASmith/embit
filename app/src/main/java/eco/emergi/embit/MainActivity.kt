@@ -6,30 +6,67 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.os.BatteryManager
 import android.os.Bundle
+import android.text.Editable
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_main.*
+
 
 
 //import eco.emergi.embit.getBatteryStatus
 
+object BatteryInfo {
+    private var currentVoltage: Int? = 0
+
+    private var currentAmperage: Long? = 0
+
+    fun setCurrentVoltage(x: Int?) {
+        currentVoltage = x
+    }
+
+    fun setCurrentAmperage(x: Long?) {
+        currentAmperage = x
+    }
+
+    fun getCurrentVoltage(): Int? {
+        return currentVoltage
+    }
+
+    fun getCurrentAmperage(): Long? {
+        return currentAmperage
+    }
+}
+
+
+
 class MainActivity : AppCompatActivity() {
 //    val db = EnergyUsageDatabase.getDatabase(applicationContext)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        print("Battery Status: " + getBatteryStatus(this))
+
+
         val bm: BatteryReceiver = BatteryReceiver()
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
         Log.d("created", "MainActivity created")
+
+        /*
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         }
+         */
+
         val db = EnergyUsageDatabase.getInstance(applicationContext)
         Log.d("DATABASE", db.energyUsageDao().getAllEnergyUsageData().toString())
 
@@ -39,6 +76,8 @@ class MainActivity : AppCompatActivity() {
         val batteryStatus = applicationContext.registerReceiver(bm, ifilter)
         val batteryStatus2 = applicationContext.registerReceiver(bm, ifilter2)
         val batteryStatus3 = applicationContext.registerReceiver(bm, ifilter3)
+
+
 
     }
 

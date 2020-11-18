@@ -30,6 +30,7 @@ class BatteryReceiver : BroadcastReceiver() {
      * @property context The application context the BatteryReceiver is registered to
      * @property intent The Intent carrying the broadcasted message with application information
      */
+
     @InternalCoroutinesApi
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onReceive(context: Context, intent: Intent) {
@@ -38,6 +39,10 @@ class BatteryReceiver : BroadcastReceiver() {
         Log.d("RECEIVED", "VOLTAGE =  " + measureVoltage(intent) + "mV")
         Log.d("RECEIVED", "TIME =  " + getTime() + "ms")
         storeData(context, measureAmps(context), measureVoltage(intent), getTime())
+
+        BatteryInfo.setCurrentVoltage(measureVoltage(intent))
+        BatteryInfo.setCurrentAmperage(measureAmps(context))
+
 
     }
 
@@ -67,6 +72,7 @@ class BatteryReceiver : BroadcastReceiver() {
      * @return System's current time in milliseconds as a Long
      */
     private fun getTime() : Long = System.currentTimeMillis()
+
 
     /**
      * Insert energyUsage data in the EnergyUsageDatabase in a new coroutine.
