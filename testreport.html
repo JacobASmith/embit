@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Embit - Project</title>
+    <link rel="icon" type="image/svg+xml" href="res/logo.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" href="css/custom_styles.css">
+</head>
+<body>
+    <div class="header">
+        <div class="navbar">
+            <a id="mainLogo" class=" is-size-2" href="index.html">
+                Embit
+            </a>
+        </div>
+
+        <nav class="navbar">
+            <div class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="index.html">
+                    Home
+                    </a>
+                    <a class="navbar-item" href="project.html">
+                    Project
+                    </a>
+                    <a class="navbar-item" href="team.html">
+                    Team
+                    </a>
+                    <a class="navbar-item" href="journal.html">
+                    Journal
+                    </a>
+                    <a class="navbar-item" href="deliverables.html">
+                    Deliverables
+                    </a>
+                </div>
+        
+            </div>
+        </nav>
+    </div>
+    <section class="container">
+        <div class="section">
+            <h1 class="title has-text-centered is-size-2">
+                Test Coverage Report
+            </h1>
+            <br><br>
+            <div class="content is-size-4">
+                <h4>Results</h4>
+                <p>
+                    <code>
+                        Testing started at 3:48 PM ...<br>
+                        10/29 15:48:47: Launching 'EnergyUsageDatabaseT...' on Pixel 2 API 30.<br>
+                        Running tests<br>
+                        <br>
+                        $ adb shell am instrument -w -r    -e debug false -e class 'eco.emergi.embit.EnergyUsageDatabaseTest' eco.emergi.embit.test/androidx.test.runner.AndroidJUnitRunner<br>
+                        Connected to process 16611 on device 'emulator-5554'.<br>
+                        <br>
+                        Started running tests<br>
+                        <br>
+                        Tests ran to completion.<br>
+                    </code>
+                    <br>
+                    EnergyUsageDao.kt is covered <strong>60%</strong>. Note that this is due to not writing tests for unused functions.
+                </p>
+                <h4>Interpretation</h4>
+                <p>
+                    <strong>Which part of the code is this report for?</strong><br/>
+                    This test suite is for the part of our app which locally stores and retrieves streaming energy consumption data. Specifically, it tests our data persistence layer, for which we used the Room Android library.<br/><br/>
+                    <strong>Do the results represent a healthy test suite, an unhealthy test suite, or somewhere in between? Why?</strong><br/>
+                    Our code is showing a healthy test suite, though it will certainly need to expand as we add new features. While everything is passing at this time, we still have quite a few features to add which will require even more testing. I am expecting that it will be quite difficult to test the functionality we still need to implement for scheduling recording that battery info. That also makes it difficult to write the tests in advance, so in that sense our test suite could be considered somewhere in between.<br/><br/>
+                    <strong>Are there parts of the code that don’t seem worth testing? If so, why not?</strong><br/>
+                    There are quite a few sections of the database code that is not worth testing. The reason being, the database table file called EnergyUsage.kt is implicitly tested when using the EnergyUsageDao. The same goes for the EnergyUsageDatabase.kt. These are very standard Room database implementations and the only place testing is required is for using the Dao in EnergyUsageDao.kt. We also decided not to test the functionality that we were not using anywhere in the code. This was a decision made because they were standard functions and since we aren’t planning to use them, there was no reason to spend our limited time working on that. Also, most of the functions in the interface of EnergyUsageDao.kt are the name and an annotation that is standard specification.<br/><br/>
+                    <strong>What are the top testing priorities in the current code? How important are they?</strong><br/>
+                    A high priority untested section of code is our energy consumption monitoring logic. We have code which listens for events from the Android energy monitoring class BatteryManager. This code is critical to the operation of our app, since it (along with the OS clock) is the source of all data we store and post to the client's endpoint(s).<br/><br/>
+                    <strong>Are there any parts of the code that seem important to test, but you’re not sure how to test them?</strong><br/>
+                    Going forward, it will be important to test our application's interface with the client's REST endpoint(s). This will be non-trivial to test since the endpoint(s) haven't yet been built, and we may need to mock them for testing purposes. This then introduces another collection of code to test: the mock endpoint(s). The need to create and test the mock endpoint(s) extends beyond the temporary blocker; by keeping the tests independent of the real endpoints, the tests will prove helpful to diagnose issues as they arise since they will be specific to our code (unlike broader integration tests).<br/><br/>
+                </p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
